@@ -1,0 +1,20 @@
+{	
+	"encoding": "utf-8",
+	"shell_cmd": "python3 -m py_compile \"${file}\"",
+	"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+	"selector": "source.python",
+
+	"variants": 
+	[
+		{	
+		"name": "Terminal Run",
+        	// "shell_cmd": "python3 -u \"$file\"",
+        	"cmd": ["osascript", "-e", "tell application \"Terminal\" to activate"]
+        	//cd '' && '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5'  '<your script here>'  && echo Exit status: $? && exit 1
+		},
+		{	
+		"name": "Terminal Run and Inspect",
+        	"shell_cmd": "python3 -i -u \"$file\"",
+		}
+	]
+}

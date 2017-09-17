@@ -1,0 +1,23 @@
+<snippet>
+	<description>C++ Algo Template</description>
+	<content><![CDATA[#include <iostream>
+#include <algorithm>
+#include <${1:vector}>
+
+#define endl '\n'
+
+using namespace std;
+
+int main() {
+	${2:ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	${3:/* code */}}
+
+	return 0;
+}
+
+]]></content>
+	<tabTrigger>FastIOtemplate</tabTrigger>
+	<scope>(source.c | source.objc | source.c++ | source.objc++) - entity.name.function</scope>
+</snippet>

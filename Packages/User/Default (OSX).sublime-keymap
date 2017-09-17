@@ -1,0 +1,91 @@
+[
+    { "keys": ["super+shift+t"], "command": "reopen_last_file" },
+    { "keys": ["super+ctrl+t"], "command": "open_terminal" },
+    { "keys": ["super+ctrl+alt+t"], "command": "open_terminal_project_folder" },
+	{ "keys": ["super+r"], "command": "build",
+		"args": {
+			"variant": "Terminal Run"
+		}
+	},
+	// { "keys": ["super+i"], "command": "build",
+	// 	"args": {
+	// 		"variant": "Terminal Run and Inspect"
+	// 	}
+	// },
+	{ "keys": ["ctrl+d"], "command": "subprocess_repl_send_signal",
+		// shift+ctrl+c: KeyboardInterrupt
+		// "args": {
+		// 	"variant": "SIGINT"
+		// }
+	},
+	{ "keys": ["super+t"], "command": "anaconda_auto_format" },
+	{ "keys": ["super+e"], "command": "repl_open",
+		"caption": "Python - RUN current file",
+		"id": "repl_python_run",
+		"mnemonic": "e",
+		"args": {
+			"type": "subprocess",
+			"encoding": "utf8",
+			"cmd": ["python3", "-u", "-i", "$file_basename"],
+			"cwd": "$file_path",
+			"syntax": "Packages/Python/Python.tmLanguage",
+			"external_id": "Python3 REPL",
+			"extend_env": {"PYTHONIOENCODING": "utf-8"}
+		}
+	},
+	{ "keys": ["super+shift+e"], "command": "repl_open",
+		"caption": "Python - RUN current file",
+		"id": "repl_python_run",
+		"mnemonic": "E",
+		"args": {
+			"type": "subprocess",
+			"encoding": "utf8",
+			"cmd": ["python3", "-u", "-i"],
+			"cwd": "$file_path",
+			"syntax": "Packages/Python/Python.tmLanguage",
+			"external_id": "Python3 REPL",
+			"extend_env": {"PYTHONIOENCODING": "utf-8"}
+		}
+	},
+
+	/* 	The following "super+i" will make sublime REPL crash!
+		After running Nodejs in sublime REPL about 80 times,
+		it will raise an error:
+		OSError(24, 'Too many open files')
+		Then sublime REPL can't run. Not even "super+e"
+		Restarting Sublime Text will fix it.
+	*/
+	{ "keys": ["super+i"], "command": "repl_open",
+		"caption": "Nodejs - RUN current file",
+		"id": "repl_nodejs_run",
+		"mnemonic": "i",
+		"args": {
+			"type": "subprocess",
+            "encoding": "utf8",
+            "cmd": {"linux": ["node", "${packages}/SublimeREPL/config/NodeJS/repl.js"],
+                    "osx": ["node", "$file_basename"],
+                    // "osx": ["node", "-e", "repl = require(\"repl\");\nr = repl.start({ignoreUndefined: true})\n.load ./$file_basename"],
+                    "windows": ["node.exe", "${packages}/SublimeREPL/config/NodeJS/repl.js"]},
+            "cwd": "$file_path",
+            "syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+            "external_id": "Nodejs",
+            "autocomplete_server": true,
+            "extend_env": {"NODE_NO_READLINE": 1}
+		}
+	},
+	{ "keys": ["super+shift+i"], "command": "repl_open",
+		"caption": "Nodejs - RUN REPL",
+		"id": "repl_nodejs_run",
+		"mnemonic": "i",
+		"args": {
+			"type": "subprocess",
+            "encoding": "utf8",
+            "cmd": ["node", "-e", "repl = require(\"repl\");\nr = repl.start()"],
+            "cwd": "$file_path",
+            "syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+            "external_id": "Nodejs",
+            "autocomplete_server": true,
+            "extend_env": {"NODE_NO_READLINE": 1}
+        }
+	}
+]

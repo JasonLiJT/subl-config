@@ -1,0 +1,24 @@
+{
+  // A File Icon Preferences – User
+  // ================================================================
+
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // ! PLEASE RESTART SUBLIME TEXT FOR THESE CHANGES TO TAKE EFFECT !
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  "force_mode": true,
+
+  "color_on_hover": "#fff",
+
+  "color_on_select": "#fff",
+
+  "opacity": 1.0,
+
+  "opacity_on_hover": 0.6,
+
+  "opacity_on_select": 1.0,
+
+
+  "size": 8
+
+}

@@ -1,0 +1,5 @@
+{	
+	"encoding": "utf-8",
+	"shell_cmd": "killall node; node ${file}",
+	"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+}
