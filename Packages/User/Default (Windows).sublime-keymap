@@ -1,0 +1,55 @@
+[
+	{ "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
+    { "keys": ["ctrl+alt+t"], "command": "open_terminal" },
+    
+    // Open containing folder
+    { "keys": ["alt+shift+t"], "command": "open_dir",
+    	"args": {
+    		"dir": "$file_path",
+    		"file": "$file_name"
+    	}
+    },
+
+    { "keys": ["ctrl+r"], "command": "build", "args": {"variant": "CMD Run"} },
+	// { "keys": ["ctrl+shift+r"], "command": "build",
+	// 	"args": {
+	// 		"variant": "CMD Run and Inspect"
+	// 	} 
+	// },
+	{ "keys": ["ctrl+t"], "command": "anaconda_auto_format" },
+	{ "keys": ["ctrl+e"], "command": "repl_open",
+		"caption": "Python - RUN current file",
+		"id": "repl_python_run",
+		"mnemonic": "e",
+		"args": {
+			"type": "subprocess",
+			"encoding": "utf8",
+			"cmd": ["python", "-u", "-i", "$file_basename"],
+			"cwd": "$file_path",
+			"syntax": "Packages/Python/Python.tmLanguage",
+			"external_id": "$file_basename",
+			"extend_env": {"PYTHONIOENCODING": "utf-8"}
+		}
+	},
+	{ "keys": ["ctrl+shift+e"], "command": "repl_open",
+		"caption": "Python - start interactive",
+		"id": "repl_python_run",
+		"mnemonic": "E",
+		"args": {
+			"type": "subprocess",
+			"encoding": "utf8",
+			"cmd": ["python", "-u", "-i"],
+			"cwd": "$file_path",
+			"syntax": "Packages/Python/Python.tmLanguage",
+			"external_id": "Python3 interactive",
+			"extend_env": {"PYTHONIOENCODING": "utf-8"}
+		}
+	},
+	{ "keys": ["alt+w"], "command": "subprocess_repl_send_signal" },
+	{ "keys": ["alt+shift+f"], "command": "clang_format",
+        "context":  
+        [
+            {"key": "selector", "operator": "equal", "operand": "source.c++"}
+        ],
+    },
+]
