@@ -1,5 +1,5 @@
 {
-    "cmd": ["g++", "-std=c++14", "${file}", "-o", "${file_path}/${file_base_name}"],
+    "cmd": ["g++", "-Wall", "-std=c++14", "${file}", "-o", "${file_path}/${file_base_name}"],
     // "cmd": ["/opt/local/bin/g++", "${file}", "-o", "${file_path}/${file_base_name}"],
     //"cmd": ["/opt/local/bin/g++", "${file}", "-static-libgcc", "-static-libstdc++", "-o", "${file_path}/${file_base_name}"],
     "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
@@ -9,11 +9,11 @@
     [
         {
                 "name": "Terminal Run",
-                "cmd": ["open", "${file_base_name}"],
+                "shell_cmd": "osascript -e \"tell application \\\"Terminal\\\" \n do script \\\"cd ${file_path} && ./${file_base_name}\\\" \n end tell\" && open -a Terminal",
         },
         {
                 "name": "Build",
-                "cmd": ["g++", "-std=c++14", "${file}", "-o", "${file_path}/${file_base_name}"],
+                "cmd": ["g++", "-Wall", "-std=c++14", "${file}", "-o", "${file_path}/${file_base_name}"],
                 // "cmd": ["/opt/local/bin/g++", "${file}", "-o", "${file_path}/${file_base_name}"],
                 //"cmd": ["/opt/local/bin/g++", "${file}", "-static-libgcc", "-static-libstdc++", "-o", "${file_path}/${file_base_name}"],
                 "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
