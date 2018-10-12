@@ -2,6 +2,20 @@
     { "keys": ["super+shift+t"], "command": "reopen_last_file" },
     { "keys": ["super+ctrl+t"], "command": "open_terminal" },
     { "keys": ["super+ctrl+alt+t"], "command": "open_terminal_project_folder" },
+    
+    // Open Containing Folder
+    { "keys": ["ctrl+shift+t"], "command": "open_dir",
+        "args": {
+            "dir": "$file_path",
+            "file": "$file_name"
+        }
+    },
+    { "keys": ["alt+shift+f"], "command": "clang_format",
+        "context":  
+        [
+            {"key": "selector", "operator": "equal", "operand": "source.c++"}
+        ],
+    },
 	{ "keys": ["super+r"], "command": "build",
 		"args": {
 			"variant": "Terminal Run"
@@ -19,6 +33,8 @@
 		// }
 	},
 	{ "keys": ["super+t"], "command": "anaconda_auto_format" },
+
+    // Python SublREPL
 	{ "keys": ["super+e"], "command": "repl_open",
 		"caption": "Python - RUN current file",
 		"id": "repl_python_run",
@@ -29,12 +45,12 @@
 			"cmd": ["python3", "-u", "-i", "$file_basename"],
 			"cwd": "$file_path",
 			"syntax": "Packages/Python/Python.tmLanguage",
-			"external_id": "Python3 REPL",
+			"external_id": "$file_basename",
 			"extend_env": {"PYTHONIOENCODING": "utf-8"}
 		}
 	},
 	{ "keys": ["super+shift+e"], "command": "repl_open",
-		"caption": "Python - RUN current file",
+		"caption": "Python - start interactive",
 		"id": "repl_python_run",
 		"mnemonic": "E",
 		"args": {
@@ -43,11 +59,12 @@
 			"cmd": ["python3", "-u", "-i"],
 			"cwd": "$file_path",
 			"syntax": "Packages/Python/Python.tmLanguage",
-			"external_id": "Python3 REPL",
+			"external_id": "Python3 interactive",
 			"extend_env": {"PYTHONIOENCODING": "utf-8"}
 		}
 	},
 
+    // NodeJS REPL
 	/* 	The following "super+i" will make sublime REPL crash!
 		After running Nodejs in sublime REPL about 80 times,
 		it will raise an error:
