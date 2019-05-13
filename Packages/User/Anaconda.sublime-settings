@@ -4,6 +4,8 @@
     */
     "anaconda_linting": true,
 
+    "swallow_startup_errors": true,
+
     /*
         Sets the linting behaviour for anaconda:
 
@@ -86,6 +88,41 @@
         "E501", //ignore "line too long" bullshit
         "E401", //ignore "multiple imports on one line" bullshit
         "E302", //ignore "expected 2 blank lines, found 1" bullshit
+        "E121",
+        "E123",
+        "E126",
+        "E133",
+        "E226",
+        "E241",
+        "E242",
+        "E704",
+        "W503",
+        "W504",
+        "W505",
+    ],
+
+    /*
+        Do not fix the errors listed here:
+        Note: By default we ignore E309 as this is not pep8 but it does
+        conflict with pep257 D211.
+
+        (*) In the default configuration, the checks E121, E123, E126, E133, E226, E241, E242, E704, W503, W504 and W505 are ignored because they are not rules unanimously accepted, and PEP 8 does not enforce them.
+        https://pycodestyle.readthedocs.io/en/latest/intro.html#error-codes
+    */
+    "autoformat_ignore":
+    [
+        "E309",
+        "E121",
+        "E123",
+        "E126",
+        "E133",
+        "E226",
+        "E241",
+        "E242",
+        "E704",
+        "W503",
+        "W504",
+        "W505",
     ],
 
     // Maximum line length for pep8
